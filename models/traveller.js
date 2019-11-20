@@ -56,49 +56,45 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 //   return newArray;
 // };
 
-
-Traveller.prototype.getUniqueModesOfTransport = function ()
-{
-  return this.journeys.forEach(
-    (journey) => {
-      return this.journeys.indexOf(journey.transport)
+Traveller.prototype.getTransports = function() {
+  return this.journeys.map(
+    (journey)=>{
+      return journey.transport
     }
-
   )
-
-
-
-
 };
 
 
-  // arr.indexOf(searchElement[, fromIndex])
+Traveller.prototype.getUniqueModesOfTransport = function ()
+{
+  transports = this.getTransports()
+  return transports.filter(
+    (transport) => {
+      return transports.indexOf(transport)
+    }
+  )
 
+};
 
-
-  // function onlyUnique(value, index, self) {
-  //     return self.indexOf(value) === index;
-  // }
-
-  //
-  // function uniqueTransport(value, index, self)
-  // { return this.journeys.filter( (journey) => {
-  //
-  //     const value = journey.transport
-  //     const index = journey.transport
-  //     const self = this.journeys
-  //     return self.indexOf(value) === index;
-  //
-  //   }
-  //
-  //   );
-  // }
-  //
-  //
-  // // usage example:
-  // var a = ['a', 1, 'a', 2, '1'];
-  // var unique = a.filter( onlyUnique );
-
+//
+// [
+// -   'train',
+//   'aeroplane',
+//   'car',
+//   'ferry'
+// ]
+//     + expected - actual
+//
+//      [
+//     +  "train"
+//        "aeroplane"
+//        "car"
+//        "ferry"
+//      ]
+//
+//
+//
+//
 
 
 
